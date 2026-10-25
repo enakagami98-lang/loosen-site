@@ -3,26 +3,272 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Loosen</title>
-<meta name="description" content="Loosen はスマホの使いすぎを防ぐホームアプリです。">
-<link rel="stylesheet" href="style.css">
+<title>Loosen — 目的のない2時間を、取り戻す。</title>
+<meta name="description" content="あなたは1日に何時間スマホを触っていますか？ 一生で失う時間を計算して、目的のないスマホ時間だけを減らすホームアプリ Loosen を紹介します。">
+<meta property="og:title" content="Loosen — 目的のない2時間を、取り戻す。">
+<meta property="og:description" content="あなたは1日に何時間スマホを触っていますか？">
+<meta property="og:image" content="icon.png">
+<meta name="theme-color" content="#FFF7DA">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<main>
-  <h1>Loosen</h1>
-  <p class="sub">スマホの使いすぎを防ぐホームアプリ / A home-screen app that helps you use your phone less</p>
 
-  <div class="card">
-    <p>Loosen は、ホーム画面に「残りの日数」を表示し、使いすぎのアプリに1日の上限をかけ、夜はスマホを休ませるための Android アプリです。記録はすべてスマホの中だけに保存されます。</p>
-    <p>Loosen is an Android home-screen app that shows the days you have left, sets daily limits on the apps you overuse, and lets your phone rest at night. All your records stay on your phone.</p>
+<header class="bar">
+  <a class="brand" href="#top"><img src="icon.png" alt="">Loosen</a>
+  <a class="cta" href="#join">テスターになる</a>
+</header>
+
+<main id="top">
+
+<!-- 1. 問いかけ -->
+<section class="screen-sec hero">
+  <div class="wrap">
+    <img class="icon rv" src="icon.png" alt="Loosen のアイコン">
+    <p class="name rv d1">Loosen</p>
+    <h1 class="huge rv d2">あなたは、1日に何時間<br>スマホを触っていますか？</h1>
   </div>
+  <div class="scroll-cue" aria-hidden="true">スクロール<i></i></div>
+</section>
 
-  <nav>
-    <a href="privacy.html">プライバシーポリシー / Privacy Policy</a>
-  </nav>
+<!-- 2. 多くの人は気づいていない -->
+<section class="screen-sec dark">
+  <div class="wrap">
+    <h2 class="big rv">スマホを開いた回数、<br><span class="sunc">半分</span>も気づいていない。</h2>
+    <div class="gap rv d1" id="gap">
+      <div class="gap-row"><span>自分の予想 <b class="num">37</b>回</span><div class="gap-track"><i class="guess"></i></div></div>
+      <div class="gap-row"><span>実際 <b class="num">85</b>回</span><div class="gap-track"><i class="real"></i></div></div>
+    </div>
+    <p class="src rv d2">23人のスマホを2週間記録した研究。1日に開いた回数の予想は平均37回、実際は平均85回でした（Andrews ほか, 2015, PLOS ONE）。</p>
+  </div>
+</section>
 
-  <h2>お問い合わせ / Contact</h2>
-  <p><a href="mailto:loosen2026dopamine@gmail.com">loosen2026dopamine@gmail.com</a></p>
+<!-- 3. 自分で入れて計算する -->
+<section class="screen-sec calc">
+  <div class="wrap">
+    <h2 class="big rv">入れてみてください。</h2>
+    <div class="sliders rv d1">
+      <div class="slider">
+        <label for="hours">1日のスマホ時間</label>
+        <output id="hoursOut">4<small>時間</small></output>
+        <input id="hours" type="range" min="0.5" max="12" step="0.5" value="4">
+      </div>
+      <div class="slider">
+        <label for="age">いまの年齢</label>
+        <output id="ageOut">22<small>歳</small></output>
+        <input id="age" type="range" min="10" max="79" step="1" value="22">
+      </div>
+    </div>
+
+    <div class="year rv">
+      <div class="label">1年で</div>
+      <div class="val num"><span id="perYear">1,461</span><small>時間</small></div>
+    </div>
+
+    <div class="loss-box rv">
+      <div class="label">80歳まで続けると、スマホの画面に</div>
+      <div class="units">
+        <div class="unit"><b class="num" id="lossH">84,738</b><span>時間</span></div>
+        <div class="unit"><b class="num" id="lossD">3,531</b><span>日</span></div>
+        <div class="unit"><b class="num" id="lossM">116</b><span>ヶ月</span></div>
+        <div class="unit main"><b class="num" id="lossY">9.7</b><span>年</span></div>
+      </div>
+      <div class="lifebar">
+        <div class="track"><i class="lived" id="lived"></i><i class="phone" id="phoneBar"></i></div>
+        <div class="ends"><span class="e0">0歳</span><span class="enow" id="nowMark">いま</span><span class="e80">80歳</span></div>
+      </div>
+    </div>
+    <p class="src">計算：1日のスマホ時間 × 365.25日 × 80歳までの残りの年数。起きている時間でいうと、<b id="awake">25</b>%をスマホに使う計算です。</p>
+  </div>
+</section>
+
+<!-- 4. スマホは悪くない。目的のない時間が問題 -->
+<section class="screen-sec white">
+  <div class="wrap">
+    <h2 class="big rv">スマホを捨てよう、<br>とは言いません。</h2>
+    <p class="mid rv d1">スマホは、人類がつくった最高の道具のひとつです。</p>
+    <div class="lanes">
+      <div class="lane good rv">
+        <h3>目的があって開く</h3>
+        <div class="tags"><span>地図</span><span>連絡</span><span>調べもの</span><span>支払い</span><span>音楽</span></div>
+        <span class="verdict-tag">どんどん使う</span>
+      </div>
+      <div class="lane bad rv d1">
+        <h3>なんとなく開く</h3>
+        <div class="drift">
+          <svg class="clock" viewBox="0 0 92 92" aria-hidden="true"><circle cx="46" cy="46" r="40"/><line class="hand" x1="46" y1="46" x2="46" y2="16"/></svg>
+          <div><span class="num">2時間</span><br>気づいたらリール動画</div>
+        </div>
+        <span class="verdict-tag">これをなくす</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. そこで Loosen -->
+<section class="screen-sec intro">
+  <div class="wrap">
+    <img class="rv" src="icon.png" alt="Loosen のアイコン">
+    <h2 class="huge rv d1">そこで、Loosen。</h2>
+    <p class="mid rv d2">目的のない時間だけを、そっと止める<br>Android のホームアプリです。</p>
+  </div>
+</section>
+
+<!-- 6. 画面で見る機能 -->
+<section class="tour-sec">
+  <div class="wrap tour">
+    <div class="stick" aria-hidden="true">
+      <div class="phone"><div class="scr">
+        <div class="st on" data-st="0">
+          <span class="cap">残りの日数</span>
+          <span class="days">21,185<small> 日</small></span>
+          <ul class="applist"><li>Instagram</li><li>X</li><li>YouTube</li><li>LINE</li><li>マップ</li><li>カメラ</li></ul>
+        </div>
+        <div class="st center" data-st="1">
+          <span class="q">Instagram を<br>本当に開きますか？</span>
+          <div class="ring"><svg viewBox="0 0 150 150"><circle class="bg" cx="75" cy="75" r="64"/><circle class="fg" cx="75" cy="75" r="64"/></svg><b id="ringNum">10</b></div>
+          <span class="cap">待つあいだに、考える</span>
+        </div>
+        <div class="st center" data-st="2">
+          <span class="q">Instagram に<br>どのくらい使いますか？</span>
+          <div class="chips"><span>5分</span><span class="pick">10分</span><span>15分</span></div>
+          <span class="cap" style="margin-top:14px">今日の残り 25分（1日 30分）</span>
+        </div>
+        <div class="st" data-st="3">
+          <div class="conf" id="conf"></div>
+          <span class="cap">残りの日数</span>
+          <span class="days">21,185<small> 日</small></span>
+          <div class="goal"><span class="cap">今日の目標</span><b>ESを1社出す</b><span class="badge">✓ 達成</span></div>
+          <div class="congrats">Congratulations!</div>
+        </div>
+        <div class="st" data-st="4">
+          <span class="cap">身体の調子</span>
+          <div class="score">身体の調子<b>8</b></div>
+          <div class="score">集中度<b>7</b></div>
+          <div class="score">気分<b>9</b></div>
+          <div class="trend" id="trend"></div>
+        </div>
+        <div class="st center night" data-st="5">
+          <div class="moon"></div>
+          <span class="cap">夜のおやすみ時間</span>
+          <span class="days">6:00</span>
+          <span class="cap">まではスマホを使えません</span>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="steps">
+      <div class="step" data-step="0">
+        <h3>アイコンを消して、<br>文字だけに。</h3>
+        <p>色と絵が、考える前に指を動かします。Loosen のホーム画面は、アプリの名前だけ。</p>
+        <div class="proof">
+          <span class="num">約40<small>分/日</small></span>
+          <div class="what">画面を白黒にして色を消しただけで、1日のスマホ時間が約40分減った</div>
+          <div class="who">大学生の実験（Holte &amp; Ferraro, 2020）</div>
+        </div>
+      </div>
+      <div class="step" data-step="1">
+        <h3>開く前に、<br>10秒だけ待つ。</h3>
+        <p>Instagram や X など、自分で選んだアプリだけ。待つあいだに「今、必要？」と考えられます。</p>
+        <div class="proof">
+          <span class="num">−37<small>%</small></span>
+          <div class="what">開く前にひと呼吸おくと、アプリを開こうとする回数が減った。3回に1回は、開くのをやめた</div>
+          <div class="who">280人・6週間の実験（Grüning ほか, 2023, PNAS）</div>
+        </div>
+      </div>
+      <div class="step" data-step="2">
+        <h3>使う時間を、<br>先に決める。</h3>
+        <p>5分・10分・15分から選びます。時間になったら、ホーム画面に戻ります。</p>
+        <div class="proof">
+          <span class="num">10<small>分×3</small></span>
+          <div class="what">3つのSNSを1日10分ずつにした3週間で、落ち込みと孤独感が減った</div>
+          <div class="who">143人の大学生の実験（Hunt ほか, 2018）</div>
+        </div>
+      </div>
+      <div class="step" data-step="3">
+        <h3>残りの日数と、<br>今日の目標。</h3>
+        <p>ホーム画面には、人生の残りの日数。朝いちばんに今日の目標を決め、達成したらお祝い。</p>
+        <div class="proof">
+          <span class="num">94<small>件の研究</small></span>
+          <div class="what">「いつ・何をするか」を先に決めると、目標を達成しやすくなる</div>
+          <div class="who">94件の検証をまとめた分析（Gollwitzer &amp; Sheeran, 2006）</div>
+        </div>
+      </div>
+      <div class="step" data-step="4">
+        <h3>体の調子を、<br>点数で残す。</h3>
+        <p>身体の調子・集中度・気分を0〜10で記録。調子のいい日の睡眠やお酒、寝る前のスマホを比べて、AI に分析してもらえます。</p>
+        <div class="proof">
+          <span class="num">138<small>件の研究</small></span>
+          <div class="what">進み具合を記録すると、目標を達成しやすくなる</div>
+          <div class="who">約2万人・138件の実験をまとめた分析（Harkin ほか, 2016）</div>
+        </div>
+      </div>
+      <div class="step" data-step="5">
+        <h3>夜は、<br>スマホも眠る。</h3>
+        <p>決めた時間はロック画面に。電話はいつでもかけられます。</p>
+        <div class="proof">
+          <span class="num">約2<small>倍</small></span>
+          <div class="what">寝る前にスマホなどを使う子どもは、睡眠が足りなくなりやすい</div>
+          <div class="who">約12万5千人の子ども・10代、20件の研究のまとめ（Carter ほか, 2016）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. データ -->
+<section class="screen-sec dark" style="min-height:auto">
+  <div class="wrap" style="text-align:center">
+    <h2 class="big rv">記録は、<br>スマホの外に出ない。</h2>
+    <div class="vault rv d1"><span>使用時間</span><span>身体の調子</span><span>目標</span><span>支払額</span><span>睡眠</span><span class="out">外に出るのは天気用のおおよその位置だけ</span></div>
+    <p class="src rv d2"><a href="privacy.html">プライバシーポリシー</a></p>
+  </div>
+</section>
+
+<!-- 8. 料金 -->
+<section class="screen-sec" style="min-height:auto">
+  <div class="wrap">
+    <h2 class="big rv">3日試して、<br>続けたい人だけ。</h2>
+    <div class="price rv d1">
+      <div class="free"><span class="num">無料</span>最初の3日間</div>
+      <div class="paid"><span class="num">年 20ドル</span>4日目から・1年ごとに自動更新</div>
+    </div>
+    <p class="price-note rv d2">無料期間中に解約すれば、料金はかかりません。価格は公開時の予定です。</p>
+  </div>
+</section>
+
+<!-- 9. テスター募集 -->
+<section class="screen-sec dark join" id="join">
+  <div class="wrap">
+    <h2 class="huge rv">最初の20人に、<br>なってください。</h2>
+    <p class="mid rv d1">公開前の14日間、いっしょに使ってくれる人を探しています。<br>テスト中は全部の機能が無料です。</p>
+    <div class="seats rv d2" aria-hidden="true"></div>
+    <a class="cta sunbtn rv d3" href="mailto:loosen2026dopamine@gmail.com?subject=Loosen%20%E3%83%86%E3%82%B9%E3%82%BF%E3%83%BC%E5%B8%8C%E6%9C%9B&amp;body=Google%20%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%AE%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%EF%BC%9A">メールで申し込む</a>
+    <p class="src">必要なのは Android スマホと Google アカウントだけです。</p>
+  </div>
+</section>
+
 </main>
+
+<footer class="refs">
+  <div class="wrap">
+    <h4>出典</h4>
+    <ol id="refs">
+      <li>Andrews, S., Ellis, D. A., Shaw, H., &amp; Piwek, L. (2015). Beyond self-report: Tools to compare estimated and real-world smartphone use. <i>PLOS ONE</i>.</li>
+      <li>Holte, A. J., &amp; Ferraro, F. R. (2020). True colors: Grayscale setting reduces screen time in college students. <i>The Social Science Journal</i>.</li>
+      <li>Grüning, D. J., Riedel, F., &amp; Lorenz-Spreen, P. (2023). Directing smartphone use through the self-nudge app one sec. <i>PNAS</i>.</li>
+      <li>Hunt, M. G., Marx, R., Lipson, C., &amp; Young, J. (2018). No more FOMO: Limiting social media decreases loneliness and depression. <i>Journal of Social and Clinical Psychology</i>.</li>
+      <li>Gollwitzer, P. M., &amp; Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. <i>Advances in Experimental Social Psychology</i>.</li>
+      <li>Harkin, B., et al. (2016). Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. <i>Psychological Bulletin</i>.</li>
+      <li>Carter, B., Rees, P., Hale, L., Bhattacharjee, D., &amp; Paradkar, M. S. (2016). Association between portable screen-based media device access or use and sleep outcomes. <i>JAMA Pediatrics</i>.</li>
+    </ol>
+    <div class="foot"><span>© 2026 Loosen</span><span><a href="privacy.html">プライバシーポリシー</a> ・ <a href="mailto:loosen2026dopamine@gmail.com">お問い合わせ</a></span></div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
 </body>
 </html>
