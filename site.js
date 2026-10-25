@@ -60,8 +60,10 @@ function show(n) {
   states.forEach((s, i) => s.classList.toggle("on", i === n));
   clearInterval(ringTimer);
   if (n === 1) {
-    let r = 10; $("#ringNum").textContent = r;
-    if (!calm) ringTimer = setInterval(() => { r = Math.max(0, r - 1); $("#ringNum").textContent = r; }, 1000);
+    // アプリと同じ：結び目が、数字も出さずにゆっくり輪になる（サイトでは15秒）
+    const t0 = performance.now();
+    knot(0);
+    if (!calm) ringTimer = setInterval(() => knot(Math.min(1, (performance.now() - t0) / 15000)), 50);
   }
   if (n === 4) [...$("#trend").children].forEach((b, i) => setTimeout(() => {
     b.style.height = `${TREND[i] * 10}%`;
@@ -72,6 +74,19 @@ const stepIO = new IntersectionObserver((es) => es.forEach((e) => {
   if (e.isIntersecting) show(+e.target.dataset.step);
 }), { rootMargin: "-45% 0px -45% 0px" });
 document.querySelectorAll(".step").forEach((s) => stepIO.observe(s));
+
+// 三つ葉結び → 円（p は 0〜1）
+function knot(p) {
+  let d = "";
+  for (let i = 0; i <= 240; i++) {
+    const a = 2 * Math.PI * i / 240;
+    const kx = Math.sin(a) + 2 * Math.sin(2 * a), ky = Math.cos(a) - 2 * Math.cos(2 * a);
+    const x = 75 + 18 * (kx + (Math.sin(a) * 2.4 - kx) * p), y = 75 - 18 * (ky + (Math.cos(a) * 2.4 - ky) * p);
+    d += (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+  }
+  $("#knotPath").setAttribute("d", d);
+}
+knot(0);
 
 // 身体の調子の棒（表示の例）
 const TREND = [6, 7.3, 5, 8, 8.3, 4.7, 7, 9, 6.3, 5.3, 8, 7.7, 9, 8];

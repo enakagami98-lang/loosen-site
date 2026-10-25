@@ -160,6 +160,8 @@ input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 
 .st.on .applist li { opacity: 1; transform: none; }
 .st.on .applist li:nth-child(2) { transition-delay: .08s; } .st.on .applist li:nth-child(3) { transition-delay: .16s; }
 .st.on .applist li:nth-child(4) { transition-delay: .24s; } .st.on .applist li:nth-child(5) { transition-delay: .32s; } .st.on .applist li:nth-child(6) { transition-delay: .4s; }
+.knot { width: 150px; height: 150px; margin: 20px 0; }
+.knot path { fill: none; stroke: rgba(28, 46, 92, .55); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
 .ring { position: relative; width: 150px; height: 150px; margin: 20px 0; display: grid; place-items: center; }
 .ring svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .ring circle { fill: none; stroke-width: 11; }
@@ -236,7 +238,7 @@ input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 
   .scr { border-radius: 23px; }
   .st { padding: 26px 12px 12px; transform-origin: top center; }
   .days { font-size: 26px; } .applist li { font-size: 15px; } .q { font-size: 11px; }
-  .ring { width: 90px; height: 90px; margin: 10px 0; } .ring b { font-size: 30px; }
+  .knot { width: 96px; height: 96px; margin: 10px 0; }
   .chips span { padding: 6px 7px; font-size: 11px; border-radius: 10px; }
   .goal { padding: 8px; } .goal b { font-size: 12px; } .congrats { font-size: 16px; }
   .score { padding: 5px 8px; margin-top: 6px; font-size: 11px; } .score b { font-size: 18px; }
