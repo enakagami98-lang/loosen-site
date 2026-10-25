@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loosen — Take back the two hours you never meant to spend.</title>
+<meta name="description" content="How many hours a day do you spend on your phone? See how much of your life it adds up to, and meet Loosen, an Android home screen that cuts only the time you spend without a purpose.">
+<meta property="og:title" content="Loosen — Take back the two hours you never meant to spend.">
+<meta property="og:description" content="How many hours a day do you spend on your phone?">
+<meta property="og:image" content="../icon.png">
+<meta name="theme-color" content="#FFF7DA">
+<link rel="alternate" hreflang="ja" href="https://enakagami98-lang.github.io/loosen-site/">
+<link rel="alternate" hreflang="en" href="https://enakagami98-lang.github.io/loosen-site/en/">
+<link rel="alternate" hreflang="x-default" href="https://enakagami98-lang.github.io/loosen-site/en/">
+<link rel="icon" href="../icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body class="en">
+
+<header class="bar">
+  <a class="brand" href="#top"><img src="../icon.png" alt="">Loosen</a>
+  <div class="bar-right">
+    <a class="lang" href="../" hreflang="ja" lang="ja">日本語</a>
+    <a class="cta" href="#join">Become a tester</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1. The question -->
+<section class="screen-sec hero">
+  <div class="wrap">
+    <img class="icon rv" src="../icon.png" alt="Loosen app icon">
+    <p class="name rv d1">Loosen</p>
+    <h1 class="huge rv d2">How many hours a day<br>do you spend on your phone?</h1>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scroll<i></i></div>
+</section>
+
+<!-- 2. We don't notice -->
+<section class="screen-sec dark">
+  <div class="wrap">
+    <h2 class="big rv">Most people don't notice<br>even <span class="sunc">half</span> of their pickups.</h2>
+    <div class="gap rv d1" id="gap">
+      <div class="gap-row"><span>Their guess <b class="num">37</b></span><div class="gap-track"><i class="guess"></i></div></div>
+      <div class="gap-row"><span>Actual <b class="num">85</b></span><div class="gap-track"><i class="real"></i></div></div>
+    </div>
+    <p class="src rv d2">A study logged 23 people's phones for two weeks. They guessed they picked up their phone 37 times a day on average. The real number was 85 (Andrews et al., 2015, PLOS ONE).</p>
+  </div>
+</section>
+
+<!-- 3. Calculate it yourself -->
+<section class="screen-sec calc">
+  <div class="wrap">
+    <h2 class="big rv">Try it yourself.</h2>
+    <div class="sliders rv d1">
+      <div class="slider">
+        <label for="hours">Screen time per day</label>
+        <output id="hoursOut">4<small>h</small></output>
+        <input id="hours" type="range" min="0.5" max="12" step="0.5" value="4">
+      </div>
+      <div class="slider">
+        <label for="age">Your age</label>
+        <output id="ageOut">22<small>yrs</small></output>
+        <input id="age" type="range" min="10" max="79" step="1" value="22">
+      </div>
+    </div>
+
+    <div class="year rv">
+      <div class="label">Every year</div>
+      <div class="val num"><span id="perYear">1,461</span><small> hours</small></div>
+    </div>
+
+    <div class="loss-box rv">
+      <div class="label">Keep it up until 80, and your screen takes</div>
+      <div class="units">
+        <div class="unit"><b class="num" id="lossH">84,738</b><span>hours</span></div>
+        <div class="unit"><b class="num" id="lossD">3,531</b><span>days</span></div>
+        <div class="unit"><b class="num" id="lossM">116</b><span>months</span></div>
+        <div class="unit main"><b class="num" id="lossY">9.7</b><span>years</span></div>
+      </div>
+      <div class="lifebar">
+        <div class="track"><i class="lived" id="lived"></i><i class="phone" id="phoneBar"></i></div>
+        <div class="ends"><span class="e0">Age 0</span><span class="enow" id="nowMark">Now</span><span class="e80">80</span></div>
+      </div>
+    </div>
+    <p class="src">Calculation: screen time per day × 365.25 days × years left until 80. That's <b id="awake">25</b>% of your waking hours.</p>
+  </div>
+</section>
+
+<!-- 4. The phone isn't the problem -->
+<section class="screen-sec white">
+  <div class="wrap">
+    <h2 class="big rv">We won't tell you<br>to throw your phone away.</h2>
+    <p class="mid rv d1">The smartphone is one of the best tools humans have ever made.</p>
+    <div class="lanes">
+      <div class="lane good rv">
+        <h3>Opening it with a purpose</h3>
+        <div class="tags"><span>Maps</span><span>Messages</span><span>Search</span><span>Payments</span><span>Music</span></div>
+        <span class="verdict-tag">Use it freely</span>
+      </div>
+      <div class="lane bad rv d1">
+        <h3>Opening it out of habit</h3>
+        <div class="drift">
+          <svg class="clock" viewBox="0 0 92 92" aria-hidden="true"><circle cx="46" cy="46" r="40"/><line class="hand" x1="46" y1="46" x2="46" y2="16"/></svg>
+          <div><span class="num">2 hours</span><br>lost to reels before you notice</div>
+        </div>
+        <span class="verdict-tag">Cut this</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. That's why Loosen -->
+<section class="screen-sec intro">
+  <div class="wrap">
+    <img class="rv" src="../icon.png" alt="Loosen app icon">
+    <h2 class="huge rv d1">That's why<br>we made Loosen.</h2>
+    <p class="mid rv d2">An Android home screen that quietly stops<br>the time you spend without a purpose.</p>
+  </div>
+</section>
+
+<!-- 6. See it on screen -->
+<section class="tour-sec">
+  <div class="wrap tour">
+    <div class="stick" aria-hidden="true">
+      <div class="phone"><div class="scr">
+        <div class="st on" data-st="0">
+          <span class="cap">Days left</span>
+          <span class="days">21,185<small> days</small></span>
+          <ul class="applist"><li>Instagram</li><li>X</li><li>YouTube</li><li>WhatsApp</li><li>Maps</li><li>Camera</li></ul>
+        </div>
+        <div class="st center" data-st="1">
+          <span class="q">Really open<br>Instagram?</span>
+          <div class="ring"><svg viewBox="0 0 150 150"><circle class="bg" cx="75" cy="75" r="64"/><circle class="fg" cx="75" cy="75" r="64"/></svg><b id="ringNum">10</b></div>
+          <span class="cap">Take a breath and think</span>
+        </div>
+        <div class="st center" data-st="2">
+          <span class="q">How long will you<br>use Instagram?</span>
+          <div class="chips"><span>5 min</span><span class="pick">10 min</span><span>15 min</span></div>
+          <span class="cap" style="margin-top:14px">Left today: 25 min (30 min/day)</span>
+        </div>
+        <div class="st" data-st="3">
+          <div class="conf" id="conf"></div>
+          <span class="cap">Days left</span>
+          <span class="days">21,185<small> days</small></span>
+          <div class="goal"><span class="cap">Today's goal</span><b>Finish the report</b><span class="badge">✓ Done</span></div>
+          <div class="congrats">Congratulations!</div>
+        </div>
+        <div class="st" data-st="4">
+          <span class="cap">Condition</span>
+          <div class="score">Body<b>8</b></div>
+          <div class="score">Focus<b>7</b></div>
+          <div class="score">Mood<b>9</b></div>
+          <div class="trend" id="trend"></div>
+        </div>
+        <div class="st center night" data-st="5">
+          <div class="moon"></div>
+          <span class="cap">Night rest time</span>
+          <span class="cap">Phone locked until</span>
+          <span class="days">6:00</span>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="steps">
+      <div class="step" data-step="0">
+        <h3>No icons.<br>Just names.</h3>
+        <p>Colors and pictures move your thumb before you think. Loosen's home screen shows only app names.</p>
+        <div class="proof">
+          <span class="num">~40<small>min/day</small></span>
+          <div class="what">Just switching the screen to grayscale cut daily screen time by about 40 minutes</div>
+          <div class="who">Experiment with college students (Holte &amp; Ferraro, 2020)</div>
+        </div>
+      </div>
+      <div class="step" data-step="1">
+        <h3>Wait 10 seconds<br>before you open.</h3>
+        <p>Only for apps you choose, like Instagram or X. While you wait, you get to ask: do I need this right now?</p>
+        <div class="proof">
+          <span class="num">−37<small>%</small></span>
+          <div class="what">A short pause before opening reduced attempts to open apps. One time in three, people chose not to open them</div>
+          <div class="who">280 people, 6 weeks (Grüning et al., 2023, PNAS)</div>
+        </div>
+      </div>
+      <div class="step" data-step="2">
+        <h3>Decide how long<br>before you start.</h3>
+        <p>Pick 5, 10 or 15 minutes. When time's up, you're back on the home screen.</p>
+        <div class="proof">
+          <span class="num">10<small>min ×3</small></span>
+          <div class="what">Limiting three social apps to 10 minutes a day each for three weeks reduced depression and loneliness</div>
+          <div class="who">143 college students (Hunt et al., 2018)</div>
+        </div>
+      </div>
+      <div class="step" data-step="3">
+        <h3>Days left,<br>and today's goal.</h3>
+        <p>Your home screen shows the days you have left. Set today's goal first thing in the morning, and celebrate when you reach it.</p>
+        <div class="proof">
+          <span class="num">94<small>tests</small></span>
+          <div class="what">Deciding when and what you'll do makes goals easier to reach</div>
+          <div class="who">Meta-analysis of 94 tests (Gollwitzer &amp; Sheeran, 2006)</div>
+        </div>
+      </div>
+      <div class="step" data-step="4">
+        <h3>Score how<br>your body feels.</h3>
+        <p>Rate body, focus and mood from 0 to 10. Compare sleep, alcohol and late-night phone use on your good days, and ask AI to analyze it.</p>
+        <div class="proof">
+          <span class="num">138<small>studies</small></span>
+          <div class="what">Tracking your progress makes goals easier to reach</div>
+          <div class="who">Meta-analysis of 138 experiments, about 20,000 people (Harkin et al., 2016)</div>
+        </div>
+      </div>
+      <div class="step" data-step="5">
+        <h3>At night,<br>your phone sleeps too.</h3>
+        <p>The hours you choose become a lock screen. Calls always work.</p>
+        <div class="proof">
+          <span class="num">~2<small>×</small></span>
+          <div class="what">Kids and teens who use devices at bedtime are about twice as likely to get too little sleep</div>
+          <div class="who">Review of 20 studies, about 125,000 kids and teens (Carter et al., 2016)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Data -->
+<section class="screen-sec dark" style="min-height:auto">
+  <div class="wrap" style="text-align:center">
+    <h2 class="big rv">Your records<br>never leave your phone.</h2>
+    <div class="vault rv d1"><span>Screen time</span><span>Condition</span><span>Goals</span><span>Spending</span><span>Sleep</span><span class="out">Only an approximate location leaves, for the weather</span></div>
+    <p class="src rv d2"><a href="../privacy.html#en">Privacy Policy</a></p>
+  </div>
+</section>
+
+<!-- 8. Price -->
+<section class="screen-sec" style="min-height:auto">
+  <div class="wrap">
+    <h2 class="big rv">Try it for 3 days.<br>Stay only if you want to.</h2>
+    <div class="price rv d1">
+      <div class="free"><span class="num">Free</span>First 3 days</div>
+      <div class="paid"><span class="num">$20/year</span>From day 4, renews every year</div>
+    </div>
+    <p class="price-note rv d2">Cancel during the free trial and you won't be charged. The price is planned for launch.</p>
+  </div>
+</section>
+
+<!-- 9. Testers wanted -->
+<section class="screen-sec dark join" id="join">
+  <div class="wrap">
+    <h2 class="huge rv">Be one of<br>the first 20.</h2>
+    <p class="mid rv d1">We're looking for people to use Loosen with us for 14 days before launch.<br>Everything is free during the test.</p>
+    <div class="seats rv d2" aria-hidden="true"></div>
+    <a class="cta sunbtn rv d3" href="mailto:loosen2026dopamine@gmail.com?subject=Loosen%20tester&amp;body=My%20Google%20account%20email%3A%20">Apply by email</a>
+    <p class="src">All you need is an Android phone and a Google account.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="refs">
+  <div class="wrap">
+    <h4>Sources</h4>
+    <ol>
+      <li>Andrews, S., Ellis, D. A., Shaw, H., &amp; Piwek, L. (2015). Beyond self-report: Tools to compare estimated and real-world smartphone use. <i>PLOS ONE</i>.</li>
+      <li>Holte, A. J., &amp; Ferraro, F. R. (2020). True colors: Grayscale setting reduces screen time in college students. <i>The Social Science Journal</i>.</li>
+      <li>Grüning, D. J., Riedel, F., &amp; Lorenz-Spreen, P. (2023). Directing smartphone use through the self-nudge app one sec. <i>PNAS</i>.</li>
+      <li>Hunt, M. G., Marx, R., Lipson, C., &amp; Young, J. (2018). No more FOMO: Limiting social media decreases loneliness and depression. <i>Journal of Social and Clinical Psychology</i>.</li>
+      <li>Gollwitzer, P. M., &amp; Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. <i>Advances in Experimental Social Psychology</i>.</li>
+      <li>Harkin, B., et al. (2016). Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. <i>Psychological Bulletin</i>.</li>
+      <li>Carter, B., Rees, P., Hale, L., Bhattacharjee, D., &amp; Paradkar, M. S. (2016). Association between portable screen-based media device access or use and sleep outcomes. <i>JAMA Pediatrics</i>.</li>
+    </ol>
+    <div class="foot"><span>© 2026 Loosen</span><span><a href="../privacy.html#en">Privacy Policy</a> · <a href="mailto:loosen2026dopamine@gmail.com">Contact</a></span></div>
+  </div>
+</footer>
+
+<script src="../site.js"></script>
+</body>
+</html>

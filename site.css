@@ -49,6 +49,14 @@ a { color: inherit; }
 .cta:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(28, 46, 92, .3); }
 .cta.sunbtn { background: var(--sun); color: var(--ink); font-size: 20px; padding: 18px 32px; }
 .bar .cta { background: var(--sun); color: var(--ink); }
+.bar-right { display: flex; align-items: center; gap: 10px; }
+/* 言語の切り替え（日本語 / English） */
+.lang { font-weight: 900; font-size: 15px; text-decoration: none; color: var(--navy); background: rgba(255, 247, 218, .85); backdrop-filter: blur(8px); padding: 10px 16px; border-radius: 99px; border: 2px solid var(--line); }
+.lang:hover { border-color: var(--navy); }
+h1, h2, h3 { text-wrap: balance; }
+/* 英語版の見出しは、数字と同じ太い書体で */
+.en h1, .en h2, .en h3, .en .name { font-family: var(--num); font-weight: 800; letter-spacing: -.02em; }
+.chips span { white-space: nowrap; }
 
 /* ---- 1. 問いかけ ---- */
 .hero { text-align: center; }
