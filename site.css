@@ -54,6 +54,9 @@ a { color: inherit; }
 .lang { font-weight: 900; font-size: 15px; text-decoration: none; color: var(--navy); background: rgba(255, 247, 218, .85); backdrop-filter: blur(8px); padding: 10px 16px; border-radius: 99px; border: 2px solid var(--line); }
 .lang:hover { border-color: var(--navy); }
 h1, h2, h3 { text-wrap: balance; }
+/* 日本語は文節の切れ目で折り返す（「考える前に」の途中などで切れないように） */
+html:lang(ja) body { word-break: auto-phrase; line-break: strict; }
+.nw { white-space: nowrap; }
 /* 英語版の見出しは、数字と同じ太い書体で */
 .en h1, .en h2, .en h3, .en .name { font-family: var(--num); font-weight: 800; letter-spacing: -.02em; }
 .chips span { white-space: nowrap; }
@@ -198,7 +201,8 @@ input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 
 .step p { margin: 16px 0 0; font-size: clamp(18px, 1.8vw, 22px); font-weight: 700; color: var(--sub); max-width: 26em; }
 .proof { margin-top: 32px; background: var(--white); border-radius: 28px; padding: 26px 28px; max-width: 560px; border-left: 8px solid var(--sun); box-shadow: 0 20px 50px -34px rgba(28, 46, 92, .5); }
 .proof .num { display: block; font-size: clamp(54px, 6vw, 84px); line-height: 1; color: var(--navy); }
-.proof .num small { font-family: var(--head); font-size: .32em; font-weight: 900; margin-left: 4px; }
+/* 単位（分/日・倍・%など）は数字の半分より少し大きく */
+.proof .num small { font-family: var(--head); font-size: .56em; font-weight: 900; margin-left: 6px; }
 .proof .what { font-weight: 900; font-size: 19px; margin-top: 8px; line-height: 1.5; }
 .proof .who { font-size: 13px; color: var(--sub); margin-top: 10px; }
 
